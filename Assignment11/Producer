@@ -1,0 +1,21 @@
+package assignment11;
+
+class Producer extends Thread {
+	 private Item item;
+	 private int number;
+	 
+	 public Producer(Item c, int number) {
+	 item = c;
+	 this.number = number;
+	 } 
+	//Override run method to call put method of item class to produce an item 
+	public void run() {
+	for (int i = 0; i< 10; i++) {
+	item.put(i);
+	         System.out.println("Producer " + this.number + " produced item: " + i);
+	try {
+	sleep((int)(Math.random() * 100));
+	         } catch (InterruptedException e) { }
+	      } 
+	   }
+}
